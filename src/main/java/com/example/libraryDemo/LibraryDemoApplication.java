@@ -1,7 +1,7 @@
 package com.example.libraryDemo;
 
-import com.example.libraryDemo.models.Author;
-import com.example.libraryDemo.repository.AuthorRepository;
+import com.example.libraryDemo.models.dto.AuthorDto;
+import com.example.libraryDemo.service.AuthorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,12 +19,11 @@ public class LibraryDemoApplication {
 	}
 
     @Bean
-    public CommandLineRunner runner(AuthorRepository authorRepository){
+    public CommandLineRunner runner(AuthorService authorService){
         return (args -> {
-           authorRepository.save(new Author("John", "Green"));
+            authorService.saveAuthor(new AuthorDto("Hank", "Green"));
 
-           authorRepository.findAll().forEach(author ->
-                   log.info(author.toString()));
+            authorService.findAll().forEach(author -> log.info(author.toString()));
         });
     }
 }

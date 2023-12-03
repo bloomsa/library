@@ -41,3 +41,7 @@ tasks.register('testBoth') {
 	}
 	println 'executed during configuration phase, (testboth)'
 }
+
+bootRun {
+    systemProperty 'spring.profiles.active', 'local'
+}
