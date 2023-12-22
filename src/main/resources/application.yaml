@@ -5,5 +5,6 @@ spring:
     password:
   jpa:
     hibernate:
+      # TODO: reconsider this setting before finishing development
       ddl-auto: update
     show-sql: true

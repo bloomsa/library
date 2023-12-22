@@ -16,9 +16,9 @@ public class AuthorService {
     }
 
     public AuthorDto saveAuthor(AuthorDto authorDto) {
-        Author author = new Author(authorDto.firstName(), authorDto.lastName());
+        Author author = new Author(authorDto.firstName(), authorDto.lastName(), authorDto.birthday());
         Author resp = authorRepository.save(author);
-        return new AuthorDto(resp.getFirstName(), resp.getLastName());
+        return new AuthorDto(resp.getFirstName(), resp.getLastName(), resp.getBirthday());
     }
 
     public List<Author> findAll() {

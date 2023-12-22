@@ -1,5 +1,7 @@
 package com.example.libraryDemo.models.dto;
 
-public record AuthorDto(String firstName, String lastName) {
+import java.time.LocalDate;
+
+public record AuthorDto(String firstName, String lastName, LocalDate birthday) {
 
 }

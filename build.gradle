@@ -25,7 +25,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
+// ###### learning structure of gradle ######
 println 'configuration phase'
 
 tasks.register('configured') {
@@ -41,6 +41,7 @@ tasks.register('testBoth') {
 	}
 	println 'executed during configuration phase, (testboth)'
 }
+// ###### learning structure of gradle ######
 
 bootRun {
     systemProperty 'spring.profiles.active', 'local'
