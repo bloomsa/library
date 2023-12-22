@@ -1,0 +1,53 @@
+package com.example.libraryDemo.models;
+
+import jakarta.persistence.Id;
+
+import java.util.List;
+
+public class Book {
+    @Id
+    String isbn;
+    String title;
+    List<String> genre;
+    String author;
+
+    public Book(String isbn, String title, List<String> genre, String author) {
+        this.isbn = isbn;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+    }
+
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<String> getGenre() {
+        return genre;
+    }
+
+    public void setGenre(List<String> genre) {
+        this.genre = genre;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+}
