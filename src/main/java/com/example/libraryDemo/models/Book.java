@@ -1,15 +1,31 @@
 package com.example.libraryDemo.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 import java.util.List;
 
+@Entity
 public class Book {
+
     @Id
     String isbn;
     String title;
     List<String> genre;
     String author;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", genre=" + genre +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
+    public Book() {
+    }
 
     public Book(String isbn, String title, List<String> genre, String author) {
         this.isbn = isbn;

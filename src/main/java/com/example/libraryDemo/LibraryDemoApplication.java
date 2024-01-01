@@ -1,7 +1,9 @@
 package com.example.libraryDemo;
 
 import com.example.libraryDemo.models.dto.AuthorDto;
+import com.example.libraryDemo.models.dto.BookDto;
 import com.example.libraryDemo.service.AuthorService;
+import com.example.libraryDemo.service.BookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @SpringBootApplication
 public class LibraryDemoApplication {
@@ -21,13 +24,13 @@ public class LibraryDemoApplication {
 	}
 
     @Bean
-    public CommandLineRunner runner(AuthorService authorService){
+    public CommandLineRunner runner(AuthorService authorService, BookService bookService){
         return (args -> {
-            // Just for fun
-            for(int i=0; i<60; i++)
-                authorService.saveAuthor(new AuthorDto("Hank", "Green", LocalDate.of(1980, 5, 5)));
-
+            // "running" the app, before the endpoints are built
+            authorService.saveAuthor(new AuthorDto("George", "Orwell", LocalDate.of(1903, 6, 25)));
+            bookService.saveBook(new BookDto("9780140817744", "1984", List.of("Science Fiction", "Dystopian Fiction", "Political Fiction"), "George Orwell"));
             authorService.findAll().forEach(author -> log.info(author.toString()));
+            bookService.findAll().forEach(book -> log.info(book.toString()));
         });
     }
 }
