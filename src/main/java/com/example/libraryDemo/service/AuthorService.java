@@ -3,6 +3,7 @@ package com.example.libraryDemo.service;
 import com.example.libraryDemo.models.Author;
 import com.example.libraryDemo.models.dto.AuthorDto;
 import com.example.libraryDemo.repository.AuthorRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,4 +26,12 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
+    public AuthorDto getAuthor(Long id) {
+        Author author = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Author not found"));
+        return toDto(author);
+    }
+
+    private AuthorDto toDto(Author author) {
+        return new AuthorDto(author.getFirstName(), author.getLastName(), author.getBirthday());
+    }
 }
