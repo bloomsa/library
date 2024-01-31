@@ -1,8 +1,8 @@
-package com.example.libraryDemo.service;
+package com.example.library.service;
 
-import com.example.libraryDemo.models.Book;
-import com.example.libraryDemo.models.dto.BookDto;
-import com.example.libraryDemo.repository.BookRepository;
+import com.example.library.models.Book;
+import com.example.library.models.dto.BookDto;
+import com.example.library.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

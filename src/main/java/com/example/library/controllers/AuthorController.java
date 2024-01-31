@@ -1,7 +1,7 @@
-package com.example.libraryDemo.controllers;
+package com.example.library.controllers;
 
-import com.example.libraryDemo.models.dto.AuthorDto;
-import com.example.libraryDemo.service.AuthorService;
+import com.example.library.models.dto.AuthorDto;
+import com.example.library.service.AuthorService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

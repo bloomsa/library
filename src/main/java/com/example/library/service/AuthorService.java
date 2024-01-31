@@ -1,8 +1,8 @@
-package com.example.libraryDemo.service;
+package com.example.library.service;
 
-import com.example.libraryDemo.models.Author;
-import com.example.libraryDemo.models.dto.AuthorDto;
-import com.example.libraryDemo.repository.AuthorRepository;
+import com.example.library.models.Author;
+import com.example.library.models.dto.AuthorDto;
+import com.example.library.repository.AuthorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
