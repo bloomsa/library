@@ -26,11 +26,15 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public AuthorDto getAuthor(Long id) {
-        Author author = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Author not found"));
+    public AuthorDto getAuthorDto(Long id) {
+        Author author = getAuthorById(id);
         return toDto(author);
     }
 
+    public Author getAuthorById(Long id) {
+        return authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Author not found"));
+
+    }
     private AuthorDto toDto(Author author) {
         return new AuthorDto(author.getFirstName(), author.getLastName(), author.getBirthday());
     }

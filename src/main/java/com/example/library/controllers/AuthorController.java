@@ -21,10 +21,14 @@ public class AuthorController {
     @GetMapping("/{id}")
     public ResponseEntity<AuthorDto> getAuthor(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(authorService.getAuthor(id));
+            return ResponseEntity.ok(authorService.getAuthorDto(id));
         } catch (EntityNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "author not found", ex);
         }
+    }
 
+    @PostMapping()
+    public ResponseEntity<AuthorDto> createAuthor(@RequestBody AuthorDto authorDto) {
+        return new ResponseEntity<>(authorService.saveAuthor(authorDto), HttpStatus.CREATED);
     }
 }

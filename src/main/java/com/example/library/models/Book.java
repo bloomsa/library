@@ -2,6 +2,8 @@ package com.example.library.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.util.List;
 
@@ -12,7 +14,9 @@ public class Book {
     String isbn;
     String title;
     List<String> genre;
-    String author;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    Author author;
 
     @Override
     public String toString() {
@@ -27,7 +31,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(String isbn, String title, List<String> genre, String author) {
+    public Book(String isbn, String title, List<String> genre, Author author) {
         this.isbn = isbn;
         this.title = title;
         this.genre = genre;
@@ -59,11 +63,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 }
